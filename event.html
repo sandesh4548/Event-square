@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="event.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="main.html"><img src="imgs/Event.png" style="height: 60px; margin: 10px 10px;"></a>
+      </div>
+
+      <div class="ano">
+        <ul class="nav-links">
+          <li><a href="main.html">Home</a></li>
+          <li><a href="event.html">Events</a></li>
+          <div class="ann">
+            <img id="avatar" alt="Avatar" />
+            <p style="margin: 5px"><a href="profile.html">Profile</a></p>
+          </div>
+        </ul>
+      </div>
+
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+
+    <p id="gte">Home > Events</p>
+
+    <div class="btns">
+      <a href="host.html" class="btn">+ Host Event</a>
+      <a href="#" class="btnn">
+        <label for="name">Join with code:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter Invitation code"
+          required
+        />
+      </a>
+    </div>
+
+    <div class="browse">
+      <h2>Browse Events</h2>
+    </div>
+
+
+    <script>
+
+      
+
+       // Function to generate a random color
+      function getRandomColor() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      // Function to generate a random circle avatar with a random color
+      function generateAvatar() {
+        const size = 30; // Size of the avatar
+        const canvas = document.createElement("canvas");
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext("2d");
+        const color = getRandomColor();
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, size / 2, 0, 2 * Math.PI);
+        ctx.fill();
+        const avatarUrl = canvas.toDataURL();
+        return avatarUrl;
+      }
+
+      // Example usage in a web page
+      const avatarImg = document.getElementById("avatar");
+      const avatarUrl = generateAvatar();
+      avatarImg.src = avatarUrl;
+    </script>
+  </body>
+</html>
